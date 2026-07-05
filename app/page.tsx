@@ -11,30 +11,30 @@ export default function Home() {
   const router = useRouter()
   const [checking, setChecking] = useState(true)
 
-  useEffect(() => {
-    if (!isLoaded) return
+ useEffect(() => {
+  if (!isLoaded) return
 
+  async function checkProfile() {
     if (!isSignedIn) {
       setChecking(false)
       return
     }
 
-    async function checkProfile() {
-      const { data } = await supabase
-        .from('profiles')
-        .select('id')
-        .eq('clerk_user_id', user!.id)
-        .maybeSingle()
+    const { data } = await supabase
+      .from('profiles')
+      .select('id')
+      .eq('clerk_user_id', user!.id)
+      .maybeSingle()
 
-      if (!data) {
-        router.push('/onboarding')
-      } else {
-        setChecking(false)
-      }
+    if (!data) {
+      router.push('/onboarding')
+    } else {
+      setChecking(false)
     }
+  }
 
-    checkProfile()
-  }, [isLoaded, isSignedIn, user, router])
+  checkProfile()
+ }, [isLoaded, isSignedIn, user, router]), [isLoaded, isSignedIn, user, router])
 
   if (!isLoaded || checking) {
     return (
