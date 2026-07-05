@@ -34,7 +34,7 @@ export default function Home() {
   }
 
   checkProfile()
- }, [isLoaded, isSignedIn, user, router]),
+ },[isLoaded, isSignedIn, user, router])
 
   if (!isLoaded || checking) {
     return (
