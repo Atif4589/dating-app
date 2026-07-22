@@ -1,6 +1,6 @@
 "use client";
 
-import SwipeCards from "./Swipecards";
+import SwipeCards from "./SwipeCards";
 
 export default function DiscoverPage() {
   const demoProfiles = [
@@ -23,10 +23,8 @@ export default function DiscoverPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black flex items-center justify-center p-8">
-
+    <main className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black flex items-center justify-center">
       <SwipeCards profiles={demoProfiles} />
-
     </main>
   );
 }
