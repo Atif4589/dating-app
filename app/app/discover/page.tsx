@@ -1,6 +1,6 @@
 "use client";
 
-import SwipeCards from "@/components/SwipeCards";
+import SwipeCards from "./Swipecards";
 
 export default function DiscoverPage() {
   const demoProfiles = [
